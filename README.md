@@ -20,4 +20,6 @@ node.js
 npm
 discord.js
 
+# Custom command installation instructions coming soon.
+
 # If you have questions, please message me on discord; Dead4Now#3348
