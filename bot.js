@@ -12,24 +12,24 @@ const token = '' // The token of your bot,
 prefix = '--' // Prefix of your bot.
 clientid = '' // Not required.
 clientname = '' // The name of your bot, used for reference later on.
+botgame = ''// What the bot game will show up as (Playing [yourinput])
 // End of Config
 
-// Custom message replies
-pingreply = 'PONG! :)' // Reply for the ping command.
-//coming soon
-// End of custom message replies
-
 // Custom command config
-// - Custom Command 1 -
+// - Custom command 1 -
+command1 = '' // What you do to release the response (pie would make the command [prefix]pie )
+command2text = '' // What you want it to reply with - You can use mardown (``` - `` - ** - * - __ - ~~ etc.)
+// - Custom command 1 - END
+// - Custom Command 2 -
 command2 = 'peanuts' // What you do to release the response (pie would make the command [prefix]pie )
 command2text = 'I LIKE PIZZA YEA I DO' // What you want it to reply with - You can use mardown (``` - `` - ** - * - __ - ~~ etc.)
-// - Custom Command 1 - END
+// - Custom Command 2 - END
 
 //This is what happens when the bot is ready.
 client.on('ready', () => {
   console.log(`Bot is connected as ${client.user.tag}.`);
   client.user.setStatus(`online`);
-  client.user.setGame(`Online! - --[helpcommand]`) //You can also use ${client.guilds.size} for the ammount of guilds the bot is in. and ${client.users.size} to find out how many users the bot is working with.
+  client.user.setGame(botgame) // Edit this in the config - You can also use ${client.guilds.size} for the ammount of guilds the bot is in. and ${client.users.size} to find out how many users the bot is working with.
 })
 
 //----------------------------------------------------------------
@@ -119,15 +119,20 @@ client.on('message', message => { // This is crucial, the bot won't work without
 // If you are choosing to reply to a command, and want new lines for example:
 // I like
 //
-// Lots of cheese. You would use \n to make a new line. This can be found in the first custom command.
+// Lots of cheese. You would use \n to make a new line.
 
 //custom command 1
-  if (message.content === (prefix + 'lol')) {
-    message.channel.send("I like\nCheese.")
+  if (message.content === (prefix + command1)) {
+    message.channel.send()
   }
 
+//custom command 2
+if (message.content === (prefix + command2)) {
+  message.channel.send(command2text)
+}
 
+
+// all commands must be done within the brackets and this line of code: client.on('message', message => { (which can be found above)
 });
-
 
 client.login(token);
