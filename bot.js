@@ -1,6 +1,6 @@
 //-----------------------------------------
 // Simple codeing bot - To view the license, please visit the LICENSE file.
-// Only to be used globally on the permission of Dead4Now#3348
+// Only to be used globally on the permission of Dead4Now#4621
 //-----------------------------------------
 
 
